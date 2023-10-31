@@ -60,7 +60,7 @@ h1, h2, h3
 
 button
 {
-	border: 0;
+	border: 1px solid var(--ligth-blue);
 	background: var(--main_blue);
 	color: #fff;
 	font-size: 16px;

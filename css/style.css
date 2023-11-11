@@ -493,6 +493,11 @@ input:user-invalid, textarea:user-invalid
     {
         scale: 70%;
     }
+
+    .headerNav
+    {
+        text-align: center;
+    }
 }
 
 @media only screen and (max-width: 1580px)
@@ -604,7 +609,7 @@ input:user-invalid, textarea:user-invalid
     }
 }
 
-@media only screen and (width: 1920px)
+@media only screen and (min-width: 1920px)
 {   
     .advantagesFieldItem
     {

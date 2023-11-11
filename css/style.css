@@ -27,6 +27,7 @@ body
 {
     margin: auto;
 }
+
 .header, .intro, .shippingCalculator, .advantages, .garantee, .reviews, .qestions
 {
     padding: .5rem 3rem;
@@ -89,11 +90,8 @@ button:hover
 .footer a:hover, .header a:hover
 {
     text-decoration: underline 2px solid var(--brand-color);
-    transition: color .5s;
+    transition: color .2s;
     color: var(--brand-color);
-    text-transform: uppercase;
-    font-weight: 800;
-    transition: text-transform .5s;
 }
 .footerNav il, .headerNav il
 {
@@ -321,8 +319,15 @@ h2, h3
 .advantagesFieldItem
 {
     flex: 0 0 80%;
-    display: flex;
-    gap: var(--main-gap);  
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    grid-template-rows: 1fr;
+    gap: var(--main-gap);
+}
+.advantagesFieldItemIcon
+{
+    justify-content: center;
+    align-items: center;
 }
 .advantagesFieldItem p
 {
@@ -465,19 +470,31 @@ input:user-invalid, textarea:user-invalid
 
 @media only screen and (max-width: 660px)
 {
-    .headerPhoneBlock span, .headerLogo span
+    .headerPhoneBlock span, .headerLogo span, .footerPhoneBlock span, .footerLogo span
     {
-        font-size: calc(var(--main-font-size) * 1.05);
+        font-size: calc(var(--main-font-size) * 1.25);
     }
-    .headerLogo img 
+    .advantagesFieldItem
+    {
+        grid-template-columns: 3rem 1fr;
+    }
+
+    .footerLogo .copyright
+    {   
+        text-align: center;
+    }
+    .headerTop
+    {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .headerLogo img, .footerLogoBlock img
     {
         scale: 70%;
     }
-    .garantee img, .advantages img
-    {
-        scale: 85%;
-    }
 }
+
 @media only screen and (max-width: 1580px)
 {
     .reviewsFieldItem
@@ -495,16 +512,16 @@ input:user-invalid, textarea:user-invalid
     {
         display: block;
     }
-    .reviewsFieldItem
-    {
-        flex: 0 0 67%;
-    }
 }
 @media only screen and (max-width: 1024px)
 {
-    .headerBottom
+    .headerButton
     {
         display: none;
+    }
+    .headerBottom
+    {
+        justify-content: center;
     }
     .headerPhoneBlockDescription, .headerInfo
     {
@@ -533,11 +550,15 @@ input:user-invalid, textarea:user-invalid
     {
         text-align: center;
     }
-    .footerNav
+}
+@media only screen and (min-width: 860px) and (max-width: 1023px)
+{
+    .advantagesFieldItem
     {
-        scale: 125%;
+        flex: 0 0 45%;
     }
 }
+
 
 @media only screen and (min-width: 1024px)
 {   
@@ -545,9 +566,14 @@ input:user-invalid, textarea:user-invalid
     {
         flex: 0 0 37%;
     }
+
     .garanteeFieldItem
     {
         flex: 0 0 42%;
+    }
+    .garanteeField
+    {
+        align-items: center;
     }
 }
 @media only screen and (min-width: 1580px)

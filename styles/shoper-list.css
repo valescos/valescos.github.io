@@ -55,6 +55,7 @@ input
 .intro-container p
 {
   font-size: 1rem;
+  margin-top: 0;
 }
 .intro-container h3
 {

@@ -27,7 +27,7 @@ h1
 }
 p, input
 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 button
@@ -41,13 +41,10 @@ button
   text-decoration: line-through;
   color: var(--purchased-color);
 }
-.non-purchased-item
-{
-}
 input
 {
   border: none;
-  border-bottom: 2px var(--main-color-accent) dashed;
+  border-bottom: 2px black dashed;
 }
 .intro-container
 {
@@ -56,8 +53,7 @@ input
 
 .intro-container p
 {
-  font-size: 1.1rem;
-  
+  font-size: 1rem;
 }
 .intro-container h3
 {
@@ -69,12 +65,8 @@ input
 {
   cursor: pointer;
 }
-.intro-container-item p
+
+.is-hidden
 {
   display: none;
-}
-
-.parag-shown p
-{
-  display: initial;
 }

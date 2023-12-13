@@ -1,10 +1,5 @@
-export let shoperItems = JSON.parse(localStorage.getItem('shoperItems')) ||
-[
-  {
-      name: '',
-      status: 'purchased'
-  }
-];
+export const shoperItems = JSON.parse(localStorage.getItem('shoperItems')) ||
+[];
 
 
 

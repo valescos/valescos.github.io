@@ -1,73 +1,19 @@
 import {shoperItems, isItemPurchased, addItem, purchaseItem, removeItem} from '../data/item.js';
+import {buildFooter} from './footer.js';
 
 // import {transliterate} from 'https://cdn.jsdelivr.net/npm/transliteration@2.1.8/dist/browser/bundle.esm.min.js';
 
 function renderEasyShoper()
 {
-  //intro stuff
+  buildFooter();
 
-        document.querySelector('.intro-hitory')
-          .addEventListener('click', ()=>{
-
-            const value = document.querySelector('.intro-hitory').innerHTML;
-
-            if (value === 'История идеи ⮟')
-            {
-            document.querySelector('.hitory').classList.add('parag-shown');
-            document.querySelector('.intro-hitory').innerHTML = 'История идеи &#11165;'
-            }
-            else
-            {
-            document.querySelector('.hitory').classList.remove('parag-shown');
-            document.querySelector('.intro-hitory').innerHTML = 'История идеи &#11167;'
-            }
-          });
-
-        document.querySelector('.intro-summary')
-        .addEventListener('click', ()=>{
-
-            const value = document.querySelector('.intro-summary').innerHTML;
-
-            if (value === 'Краткое описание проекта ⮟')
-            {
-            document.querySelector('.summary').classList.add('parag-shown');
-            document.querySelector('.intro-summary').innerHTML = 'Краткое описание проекта &#11165;'
-            }
-            else
-            {
-            document.querySelector('.summary').classList.remove('parag-shown');
-            document.querySelector('.intro-summary').innerHTML = 'Краткое описание проекта &#11167;'
-            }
-          }); 
-
-          document.querySelector('.intro-favor')
-          .addEventListener('click', ()=>{
-  
-            const value = document.querySelector('.intro-favor').innerHTML;
-
-            if (value === 'Просьба тестерам ⮟')
-            {
-            document.querySelector('.favor').classList.add('parag-shown');
-            document.querySelector('.intro-favor').innerHTML = 'Просьба тестерам &#11165;'
-            }
-            else
-            {
-            document.querySelector('.favor').classList.remove('parag-shown');
-            document.querySelector('.intro-favor').innerHTML = 'Просьба тестерам &#11167;'
-            }
-          }); 
-  
-
-  //intro stuff
-
-  let purchasedHTML = '';
-  let nonPurchasedHTML = '';
+  let listHtml = '';
   
   shoperItems.forEach((shoperItem) =>
   {
     if(isItemPurchased(shoperItem))
     {
-      purchasedHTML +=
+      listHtml +=
       `
         <div class="purchased-item">
           <p>${shoperItem.name}</p>
@@ -76,7 +22,7 @@ function renderEasyShoper()
     }
     else
     {
-      nonPurchasedHTML +=
+      listHtml +=
       `
       <div class="non-purchased-item">
         <p>
@@ -89,7 +35,12 @@ function renderEasyShoper()
     }
   });
   
-  document.querySelector('.js-items-container').innerHTML = purchasedHTML + nonPurchasedHTML;
+  setTimeout(()=>{
+    document.querySelector('.item-input').value = '';
+  });
+
+  document.querySelector('.js-items-container').innerHTML = listHtml;
+
 
 
 //QUERYS-Ss=>
@@ -101,10 +52,25 @@ function renderEasyShoper()
   });
 
   document.querySelector('.add-button').addEventListener('click', ()=>{
-    const name = document.querySelector('.item-input').value;
-    addItem(name);
-    renderEasyShoper();
-    document.querySelector('.item-input').value = '';
+      const name = document.querySelector('.item-input').value;
+      if(name)
+      {
+        addItem(name);
+        renderEasyShoper();
+      }
+  });
+
+  document.querySelector('.item-input')
+  .addEventListener('keydown',(e)=>{
+    if(e.key === 'Enter')
+    {
+      const name = document.querySelector('.item-input').value;
+      if(name)
+      {
+        addItem(name);
+        renderEasyShoper();
+      }
+    }
   });
 
   document.querySelectorAll('.js-purchase-button')

@@ -1,287 +1,71 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
+    <title lang="en">ShoperList</title>
     <meta charset="utf-8">
-
-    <title lang="en">FromBoard Delivery</title>
-
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
+ 
+    <link rel="stylesheet" href="/styles/hovers.css">
+    <link rel="stylesheet" href="/styles/margins.css">
+    <link rel="stylesheet" href="/styles/images.css">
+    <link rel="stylesheet" href="/styles/easy-shoper.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    
-</head>
-<body>
-    <header class="header">
-        <div class="headerTop">
-            <div class="headerLogo">            
-                <img src="icons/logo.svg" alt="Логотип">
-                <span lang="en">FromBoard Delivery</span>
-            </div>
-            <div class="headerTopRigth">
-                    <div class="headerInfo">
-                        <p>Доставляем товары из-за границы в Россию</p>
-                        <p>Стоимость от 550 рублей за заказ</p>
-                        <p>1 $ = 93 ₽ | 1 € = 99 ₽ | 1 ¥ = 13 ₽</p>
-                    </div>
-                    <div class="headerPhoneBlock">
-                        <span>+7 (800) 123 45 67</span>
-                        <p class="headerPhoneBlockDescription">Звонки по России бесплатны</p>
-                    </div>
-            </div>
-        </div>
+  <body>
 
-        <div class="headerBottom">
-            <ul class="headerNav">
-                <il><a href="#calc">Калькулятор</a></il>
-                <il><a href="#advantages">О нас</a></il>
-                <il><a href="#garantee">Гарантии</a></il>
-                <il><a href="#reviews">Отзывы</a></il>
-            </ul>
-            <button class="headerButton">Оставить заявку</button>
-        </div>
+    <header>
+      <h1 lang="en"><img src="images/sort-by-svgrepo-com.svg" class="header-img"> Shoper<span class="header-accent">List</span></h1>
+
     </header>
 
-    <main class="content">
-    
-    <article class="maininfo">
-    <div class="intro">
-        <div>
-            <h1>Безпроблемная доставка купленных вещей из США, Европы и Азии в Россию</h1>
-            <p>Сэкономьте на покупках и наслаждайтесь мировыми брендами - наш сервис позволяет вам легко и удобно заказывать товары со всего мира и получать их в России</p>
-        </div>
-        <div class="introImgConteiner"><img src="img/img1.jpg" alt="Человек открывает коробку в просторной комнате"></div>
+    <div class="items-container js-items-container">
     </div>
 
-    <div class="shippingCalculator" id="calc">
-        <h2>Калькулятор доставки</h2>
-        <p>Посчитайте, сколько будет стоить перевозка покупки из-за рубежа. <span class="warning">Это учебный проект - настоятельно советую не вносить реальные данные</span></p>
-        <form class="shippingCalculatorForm">
-            <div class="shippingCalculatorFormItem">
-            <label for="name">Имя</label>
-                <input type="text" id="name" name="name" autocomplete="name" maxlength="42" required>
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="email">Почта</label>
-                <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="tel">Телефон</label>
-                <input type="tel" id="tel" name="tel" autocomplete="tel" required maxlength="16">
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="shiping_space">Общая площадь, м<sup>2</sup></label>
-                <input type="number" min="0" max="100" id="shiping_space" name="shiping_space" required >
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="shiping_weight">Вес, кг</label>
-                <input type="number" min="0" max="1000" id="shiping_weight" name="shiping_weight" required >
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="country_buyfrom">Страна покупки</label>
-                <input type="text" id="country_buyfrom" name="country_buyfrom" maxlength="42" required>
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="city_buyfrom">Город покупки</label>
-                <input type="text" id="city_buyfrom" name="city_buyfrom"maxlength="42" required>
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="area_deliverto">Область доставки</label>
-                <input type="text" id="area_deliverto" name="area_deliverto" maxlength="42" required>
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <label for="city_deliverto">Город доставки</label>
-                <input type="text" id="city_deliverto" name="city_deliverto" maxlength="42" required>
-            </div>
-            <div class="shippingCalculatorFormItem">
-            <button>Заказать расчёт</button>
-            </div>
-        </form>
-    </div>
-    </article>
-
-
-    <div class="advantages" id="advantages">
-        <h2>Наши преимущества</h2>
-        <div class="advantagesField">
-            <div class="advantagesFieldItem">
-                <div class="advantagesFieldItemIcon"><img src="icons/Board.svg" alt=""></div>
-                <div><h3>Растоможка груза</h3>
-                <p>Мы берём на себя все формальности и бумажную волокиту, связанную с растаможкой груза</p></div>
-            </div>
-            <div class="advantagesFieldItem">                
-                <div class="advantagesFieldItemIcon"><img src="icons/Package.svg" alt=""></div>
-                <div><h3>Надёжная упаковка</h3>
-                <p>Все товары упаковываются нашими специалистами с особым вниманием к деталям, гарантируя, что они дойдут в безопасности и в отличном состоянии</p></div>
-            </div>
-            <div class="advantagesFieldItem">               
-                <div class="advantagesFieldItemIcon"><img src="icons/Delivery.svg" alt=""></div>
-                <div><h3>Быстро и выгодно</h3>
-                <p>Мы предлагаем быструю и выгодную доставку, чтобы вы могли насладиться покупками как можно скорее.</p></div>
-            </div>
-            <div class="advantagesFieldItem">               
-                <div class="advantagesFieldItemIcon"><img src="icons/BestSupport.svg" alt=""></div>
-                <div><h3>Удобный сервис</h3>
-                <p>Стремимся сделать процесс доставки максимально удобным для вас, чтобы опыт остался приятным и беззаботным</p></div>
-            </div>
-            <div class="advantagesFieldItem">               
-                <div class="advantagesFieldItemIcon"><img src="icons/ClearInfo.svg" alt=""></div>
-                <div><h3>Прозрачность работы</h3>
-                <p>Мы предоставляем полный контроль над каждым этапом доставки, от момента заказа до момента прибытия заказа</p></div>
-            </div>
-            <div class="advantagesFieldItem">               
-                <div class="advantagesFieldItemIcon"><img src="icons/Garantee.svg" alt=""></div>
-                <div><h3>Страхование груза</h3>
-                <p>Наше страхование обеспечивает полную защиту и покрытие почти все неприятные и неожиданные ситуации</p></div>
-            </div>  
-        </div>   
+    <div>
+      <button class="add-button"><img src="/images/arrow-up-circle-svgrepo-com.svg" class="func-img"></button>
+      <input name="item" class="item-input">
+      <button class="refresh-button js-refresh-button"><img src="/images/refresh-svgrepo-com.svg" class="func-img"></button>
     </div>
 
-    <div class="garantee" id="garantee"> 
-        <h2>Гарантии качества</h2>
-        <p>Наши гарантии качества включают в себя полный спектр документов,
-        необходимых для ввоза и вывоза товаров, а также для успешного бизнеса
-        на мировом рынке. Мы предоставляем вам надёжность и уверенность</p>
-        <div class="garanteeField">
-            <div class="garanteeFieldItem">
-                <img src="img/certRF.png" alt="">
-                <p>Свидетельство о регистрации<br>в РФ</p>
-            </div>
-            <div class="garanteeFieldItem">
-                <img src="img/certUSA.png" alt="">
-                <p>Свидетельство о регистрации<br>в США</p>
-            </div>
-            <div class="garanteeFieldItem">
-                <img src="img/certChina.png" alt="">
-                <p>Свидетельство о регистрации<br>в Китае</p>
-            </div>
-            <div class="garanteeFieldItem">
-                <img src="img/certGBR.png" alt="">
-                <p>Свидетельство о регистрации<br>в Великобритнии</p>
-            </div>
-        </div>
-        <button>Показать больше документов</button>
+
+
+
+    <div class="intro-container">
+      <div class="intro-container-item howto"> 
+        <h3>Как пользоваться:</h3>
+        <span>
+          <img src="/images/arrow-up-circle-svgrepo-com.svg"> Добавить.
+          <img src="images/checkmark-circle-svgrepo-com.svg"> Зачеркнуть. 
+          <img src="images/cross-circle-svgrepo-com.svg"> Удалить.
+          <img src="/images/refresh-svgrepo-com.svg"> Очистить полностью.
+        </span>
+      </div>
+      
+      <div class="intro-container-item hitory">
+        <h3><span class="intro-hitory">История идеи &#11167;</span></h3>
+        <p>Среди людей желающих стать программистами традиционно бытует мнение:  учись на реальных проектах. Максима эта логична и безапелляционна. За её скобками остается лишь вопрос: а какие это, собственно, реальные проекты? На этом месте из леса забитых идей выходят todo-листы, подделки под фейсбук/амазон и прочие конверторы температур из фаренгейтов в цельсии и обратно. Я решил что негоже в начале пути отходить от традиции. Этот проект — моя вариация todo-листа (интерактивного списка задач). Я довольно часто забываю что-то купить в магазине. В целом, карандаш, блокнот или одно из миллиона мобильных приложений (прошу заметить — уже готовых и протестированных) могут легко решить проблему забывчивости. Но зачем избавляться от позорного недуга, когда его можно обратить в студенческий подвиг?</p>
+      </div>
+
+      <div class="intro-container-item summary">
+        <h3><span class="intro-summary">Краткое описание проекта &#11167;</span></h3>
+        <p>Веб-приложение, в котором нечто можно вносить в список и потом вычёркивать из него. Информация должна сохраняться после ухода/возвращения на страницу и её обновления (F5).
+      </p>
+      </div>
+
+      <div class="intro-container-item favor">
+        <h3><span class="intro-favor">Просьба тестерам &#11167;</span></h3>
+        <p>По возможности проверить на максимальном количестве устройств. Критика и любвая обратная связь приветствуются. Буду рад исправить ошибки или внести дополнительный функционал (интересно потренироваться править живой проект).
+      </p>
+      </div>
+
+
+
     </div>
 
-    <div class="reviews" id="reviews">
-        <h2>Отзывы</h2>
-            <div class="reviewsField">
+    <script src="/scripts/shoper-list.js" type="module"></script>
+  </body>
 
-                <div class="reviewsFieldItem">
-                    <div class="reviewsFieldItemComent">
-                        <p>Я уже несколько лет заказываю дизайнерскую одежду из Франции через ваш сервис,
-                        и он никогда меня не подводил. Важно иметь надежную компанию, которая позаботится
-                        о вашем заказе и предоставит все необходимые документы для ввоза в Россию</p>
-                        <span>Ольга</span>
-                    </div>
-                </div>
-
-                <div class="reviewsFieldItem">
-                    <div class="reviewsFieldItemComent">
-                        <p>Заказал шикарные часы из Швейцарии, и доставка была невероятно быстрой.
-                        Ваш сервис делает интернет-шоппинг более доступным и удобным</p>
-                        <span>Игорь</span>
-                    </div>
-                </div>
-
-                <div class="reviewsFieldItem">
-                    <div class="reviewsFieldItemComent">
-                        <p>Ваш сервис действительно изменил мой способ покупок. Я больше не переживаю
-                        о таможенных вопросах и документах - все у вас в порядке.
-                        Спасибо за ваше качество и надежность</p>
-                        <span>Екатерина</span>
-                    </div>
-               </div>
-
-               <div class="reviewsFieldItem">
-                    <div class="reviewsFieldItemComent">
-                        <p>Я заказал редкий антикварный предмет из Японии через ваш сервис, и остался впечатлен.
-                        Все пришло в отличном состоянии, и ваша гарантия качества действительно работает.
-                        Спасибо за ваше профессиональное обслуживание</p>
-                        <span>Дмитрий</span>
-                    </div>
-                </div>
-
-                <div class="reviewsFieldItem">
-                    <div class="reviewsFieldItemComent">
-                        <p>А мне чё-то слегка не понравилось. Но я вообще не понимаю, зачем
-                        покупать предметы роскоши за бешбабло. А сайт свёрстан неплохо!</p>
-                        <span>Валентин</span>
-                    </div>
-                </div>
-            </div>
-    </div>
-
-     <div class="qestions">
-        <h2>Остались вопросы? <span class="warning">Это учебный проект - настоятельно советую не вносить реальные данные</span></h2>
-        <form class="qestionsForm">
-            <div class="qestionsFormItem">
-            <label for="name">Имя</label>
-                <input type="text" id="name" name="name" autocomplete="name" maxlength="42" required>
-            </div>
-            <div class="qestionsFormItem">
-            <label for="email">Почта</label>
-                <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="qestionsFormItem">
-            <label for="tel">Телефон</label>
-                <input type="tel" id="tel" name="tel" autocomplete="tel" required>
-            </div>
-            <div class="qestionsFormItem">
-            <label for="qestionsHeader">Тема вопроса</label>
-                <input type="text" id="qestionsHeader" name="qestionsHeader" required>
-            </div> 
-            <div class="qestionsFormItem">
-            <label for="qestionBody">Вопрос</label>
-                <textarea type="text" id="qestionBody" name="qestionBody" required autocomplete="off"></textarea>
-            </div>
-            <div class="qestionsFormItem">
-            <button>Оставить заявку</button>
-            </div>
-        </form>
-    </div>
-    </main>
-
-    <footer class="footer">
-
-        <div class="footerTop">
-            <div class="footerLogo">            
-                <div class="footerLogoBlock">
-                    <img src="icons/logo.svg" alt="Логотип">
-                    <span lang="en">FromBoard Delivery</span>
-                </div>
-                <span class="copyright">2023 © Ни одно право не защищено, копируйте сколько влезет</span>
-            </div>
-
-            <ul class="footerNav">
-                <il><a href="#calc">Калькулятор</a></il>
-                <il><a href="#advantages">О нас</a></il>
-                <il><a href="#garantee">Гарантии</a></il>
-                <il><a href="#reviews">Отзывы</a></il>
-            </ul>
-            
-            <div class="footerPhoneBlock">
-                <span>+7 (800) 123 45 67</span>
-                <p class="footerPhoneBlockDescription">Звонки по России бесплатны</p>
-            </div>
-        </div>
-
-        <div class="footerBottom">
-            <div class="disclaimer">
-                <p>НЕ ЯВЛЯЕТСЯ ПУБЛИЧНОЙ ОФЕРТОЙ. Просим обратить внимание на то, что цены носят информационный и ознакомительный характер,
-                а значит ни в какой мере не являются публичной офертой, которая определена  в ст. 437 ГК РФ. Вся информация на сайте может
-                содержать неточности, орфографические и иные ошибки, она не является полной, окончательно и исчерпывающей</p>
-            </div>
-
-            <div class="credits">
-                <P>Разработкой макета занимался StyleLifeWeb | Васильев Александр | а "я" потом "взял" в учебных целях для вёрстки</P>
-            </div>
-        </div>
-    </footer>
-</body>
 </html>

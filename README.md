@@ -1,5 +1,5 @@
 # valescos.github.io
 
-Recreating random website desing. Clumsy, weird, borderline inappropriate but quite fun
+Custom listmaker. My first JS-related project. 
 
-/*Вёрстка случайного примера дизайна сайта. Криво, косо, почти неюзабельно, но довольно весело*/
+/*Веб-форма для создание списков. Мой первый проект с использование Джава-скрипта*/

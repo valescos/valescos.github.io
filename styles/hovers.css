@@ -1,0 +1,9 @@
+.intro-hitory:hover, .intro-summary:hover, .intro-favor:hover
+{
+  color: rgb(8, 223, 205);
+}
+
+.func-img:hover
+{
+  filter: brightness(0%);
+}

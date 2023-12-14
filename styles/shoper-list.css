@@ -47,23 +47,23 @@ input
   border-bottom: 2px black dashed;
   max-width: 60%;
 }
-.intro-container
+.footer-container
 {
   text-align: left;
 }
 
-.intro-container p
+.footer-container p
 {
   font-size: 1rem;
   margin-top: 0;
 }
-.intro-container h3
+.footer-container h3
 {
   font-size: 1.4rem;
   margin: 0;
   padding: 0;
 }
-.intro-container h3 span
+.footer-container h3 span
 {
   cursor: pointer;
 }
@@ -72,16 +72,27 @@ input
 {
   display: none;
 }
-.footer-howto-list
+
+.js-footer-howto-par
 {
   display: flex;
   gap: 1rem;
+  margin-bottom: 1rem;
+}
+.item-index
+{
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-right: .5rem;
+  margin-left: .2rem;
 }
 
 
 @media only screen and (max-width: 542px)
 {
-  .footer-howto-list
+  .js-footer-howto-par
   {
     display: grid;
     gap: 0;

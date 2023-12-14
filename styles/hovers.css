@@ -8,7 +8,7 @@
   filter: brightness(0%);
 }
 
-.intro-container h3 span:hover
+.footer-container h3 span:hover
 {
   color: rgb(8, 223, 205);
 }

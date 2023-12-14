@@ -46,6 +46,17 @@ export function purchaseItem(item)
   saveToStorage();
 };
 
+export function unPurchaseItem(item)
+{
+  shoperItems.forEach((shoperItem) =>{
+    if(shoperItem.name === item)
+    {
+      shoperItem.status = '';
+    }
+  });
+  saveToStorage();
+};
+
 export function removeItem(item)
 {
   shoperItems.forEach((shoperItem) =>{

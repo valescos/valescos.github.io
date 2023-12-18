@@ -27,7 +27,7 @@ h1
 }
 p, input
 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 400;
 }
 button
@@ -54,7 +54,7 @@ input
 
 .footer-container p
 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-top: 0;
 }
 .footer-container h3
@@ -87,7 +87,43 @@ input
   font-weight: 700;
   margin-right: .5rem;
   margin-left: .2rem;
+  cursor: initial;
 }
+
+.autocomplite-field
+{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  max-width: 21.5rem;
+}
+.autocomplite-field-option
+{
+  text-align: left;
+  margin-left: 2.5rem;
+  font-size: 1.2rem;
+  padding: .25rem;
+}
+.autocomplite-field-option:hover
+{
+  background: rgba(8, 223, 205, 0.2);
+}
+.flush-autocomplite-button
+{
+  background-color: var(--main-color-accent);
+  color: white;
+  border-radius: 5rem;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.flush-autocomplite-button:hover
+{
+  background-color: var(--main-color);
+}
+
 
 
 @media only screen and (max-width: 542px)

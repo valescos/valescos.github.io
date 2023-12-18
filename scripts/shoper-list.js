@@ -1,7 +1,46 @@
 import {shoperItems, isItemPurchased, addItem, purchaseItem, removeItem, unPurchaseItem} from '../data/item.js';
 import {buildFooter} from './footer.js';
 
-// import {transliterate} from 'https://cdn.jsdelivr.net/npm/transliteration@2.1.8/dist/browser/bundle.esm.min.js';
+let autocompleteSuggestions = JSON.parse(localStorage.getItem('autocompleteSuggestions')) || [];
+let input = document.querySelector('.item-input');
+input.addEventListener('input', ()=>{
+  autoSRender();
+});
+
+function autoSRender ()
+{
+  const inputValue = input.value;
+
+  let fileredSuggestions = '';
+
+  fileredSuggestions = autocompleteSuggestions.filter((suggestion) =>{
+    return suggestion.substring(0, inputValue.length).toLowerCase() === inputValue.toLowerCase()
+          && inputValue.length >= 2
+          && suggestion.toLowerCase() !== inputValue.toLowerCase()
+  });
+
+  let html = '';
+
+  if(fileredSuggestions)
+  {
+    fileredSuggestions.forEach((suggestion) =>{
+      html +=
+      `
+      <button class="autocomplite-field-option">${suggestion}</button>
+    `
+    })
+  }
+  document.querySelector('.autocomplite-field').innerHTML = html;
+
+  document.querySelectorAll('.autocomplite-field-option')
+  .forEach((button) =>{
+    button.addEventListener('click', ()=>{
+      addItem(button.innerText);
+      renderEasyShoper();
+    })
+  })
+}
+
 
 function renderEasyShoper()
 {
@@ -41,13 +80,13 @@ function renderEasyShoper()
     }
   });
   
-  setTimeout(()=>{
-    document.querySelector('.item-input').value = '';
-  });
+  // setTimeout(()=>{
+  document.querySelector('.item-input').value = '';
+  // });
 
   document.querySelector('.js-items-container').innerHTML = listHtml;
 
-
+  autoSRender();
 
 //QUERYS-Ss=>
 
@@ -55,28 +94,6 @@ function renderEasyShoper()
     localStorage.removeItem('shoperItems');
     shoperItems.splice(0, shoperItems.length);
     renderEasyShoper();
-  });
-
-  document.querySelector('.add-button').addEventListener('click', ()=>{
-      const name = document.querySelector('.item-input').value;
-      if(name)
-      {
-        addItem(name);
-        renderEasyShoper();
-      }
-  });
-
-  document.querySelector('.item-input')
-  .addEventListener('keydown',(e)=>{
-    if(e.key === 'Enter')
-    {
-      const name = document.querySelector('.item-input').value;
-      if(name)
-      {
-        addItem(name);
-        renderEasyShoper();
-      }
-    }
   });
 
   document.querySelectorAll('.js-purchase-button')
@@ -109,4 +126,52 @@ function renderEasyShoper()
 
 renderEasyShoper();
 buildFooter();
+
+document.querySelector('.add-button').addEventListener('click', ()=>{
+  const name = document.querySelector('.item-input').value;
+
+  if(name)
+  {
+    let formatedName = name.substring(0, 1).toUpperCase() + name.substring(1, name.lenght).toLowerCase();
+    addItem(formatedName);
+    saveSuggestion(formatedName);    
+    renderEasyShoper();
+  }
+});
+
+document.querySelector('.item-input')
+  .addEventListener('keydown',(e)=>{
+    if(e.key === 'Enter')
+    {
+      const name = document.querySelector('.item-input').value;
+
+      if(name)
+      {
+        let formatedName = name.substring(0, 1).toUpperCase() + name.substring(1, name.lenght).toLowerCase();
+        addItem(formatedName);
+        saveSuggestion(formatedName);
+        renderEasyShoper();
+      }
+    }
+});
+
+document.querySelector('.flush-autocomplite-button').addEventListener('click', ()=>{
+  flushSuggestionToStorage();
+})
+
+function saveSuggestion(suggestion)
+{
+  if (autocompleteSuggestions.indexOf(suggestion) === -1)
+  {
+    autocompleteSuggestions.push(suggestion);
+    localStorage.setItem('autocompleteSuggestions', JSON.stringify(autocompleteSuggestions));
+  }
+}
+
+function flushSuggestionToStorage()
+{
+  localStorage.removeItem('autocompleteSuggestions');
+  autocompleteSuggestions = [];
+  renderEasyShoper();
+}
 

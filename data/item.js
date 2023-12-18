@@ -31,8 +31,9 @@ export function addItem(shoperItem)
       name: shoperItem,
       status: 'nonPurchased'
     });
+
+    saveToStorage();
   }
-  saveToStorage();
 };
 
 export function purchaseItem(item)

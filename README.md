@@ -1,5 +1,10 @@
-# valescos.github.io
+# ShoperList
+### _Мой перый учебный проект_
 
-Custom listmaker. My first JS-related project. 
+[valescos.github.io](https://valescos.github.io/)
 
-/*Веб-форма для создание списков. Мой первый проект с использование Джава-скрипта*/
+Веб-форма для создания списков, сохраняется в localStorage. Проект дорог мне как память о начале пути :)
+
+- HTML
+- CSS
+- JavaScript
